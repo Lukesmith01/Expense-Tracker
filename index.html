@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <label>Filter by Month:</label>
+    <input type="month" id="filter-month">
+    <button onclick="applyFilter()">Apply</button>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+
+        <!-- Balance -->
+        <div class="balance">
+            <h2>Balance: ₦<span id="balance">0</span></h2>
+        </div>
+
+        <!-- Income & Expense -->
+        <div class="summary">
+            <div class="income">
+                <h3>Income</h3>
+                <p>₦<span id="income">0</span></p>
+            </div>
+            <div class="expense">
+                <h3>Expense</h3>
+                <p>₦<span id="expense">0</span></p>
+                
+                <h3>Spending by Category</h3>
+                <canvas id="categoryChart" width="400" height="400"></canvas>
+
+            </div>
+        </div>
+
+        <!-- Add Transaction -->
+        <form id="transaction-form">
+            <input type="text" id="description" placeholder="Enter description" required>
+            <input type="number" id="amount" placeholder="Enter amount (+ for income, - for expense)" required>
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <!-- Transaction List -->
+        <h3>History</h3>
+        <ul id="transaction-list"></ul>
+    </div>
+
+    <select id="category" required>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Bills">Bills</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Other">Other</option>
+    </select>
+
+    <input type="date" id="date" required>
+
+    <button onclick="exportCSV()">Export CSV</button>
+
+    <input type="text" id="username" placeholder="Enter username">
+    <button onclick="login()">Login</button>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
