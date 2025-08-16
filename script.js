@@ -170,4 +170,10 @@ function saveTransactions() {
     localStorage.setItem(user + "_transactions", JSON.stringify(transactions));
 }
 
+function toggleInstructions() {
+  const box = document.getElementById("instructions");
+  box.style.display = (box.style.display === "none") ? "block" : "none";
+}
+
+
 
